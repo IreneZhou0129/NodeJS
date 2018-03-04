@@ -1,9 +1,9 @@
 # NodeJS
 
-documentation: https://nodejs.org/api/index.html
+1. documentation: https://nodejs.org/api/index.html
 
 
-异步/同步 IO 操作：
+2. 异步/同步 IO 操作：
 
 同步和异步的概念描述的是用户线程与内核的交互方式：
 同步是指用户线程发起IO请求后需要等待或者轮询内核IO操作完成后才能继续执行；
@@ -12,3 +12,5 @@ documentation: https://nodejs.org/api/index.html
 阻塞和非阻塞的概念描述的是用户线程调用内核IO操作的方式：
 阻塞是指IO操作需要彻底完成后才返回到用户空间；
 非阻塞是指IO操作被调用后立即返回给用户一个状态值，无需等到IO操作彻底完成。
+
+3. JS本身是单线程运行的，不可能在一段代码还未结束运行时去运行别的代码，因此也就不存在异步执行的概念。setTimeout这类JS规范之外的由运行环境提供的特殊函数做的事情是创建一个平行线程后立即返回，让JS主进程可以接着执行后续代码，并在收到平行进程的通知后再执行回调函数
