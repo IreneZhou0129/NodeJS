@@ -1,9 +1,12 @@
-# NodeJS
+# NodeJS Study Notes
 
-7天学NodeJS: https://goo.gl/ux2Lne
+[7天学NodeJS](https://goo.gl/ux2Lne)
 
-1. documentation: https://nodejs.org/api/index.html
+---
 
+1. [documentation](https://nodejs.org/api/index.html)
+
+---
 
 2. 异步/同步 IO 操作：
 
@@ -15,6 +18,32 @@
 阻塞是指IO操作需要彻底完成后才返回到用户空间；
 非阻塞是指IO操作被调用后立即返回给用户一个状态值，无需等到IO操作彻底完成。
 
+---
+
 3. JS本身是单线程运行的，不可能在一段代码还未结束运行时去运行别的代码，因此也就不存在异步执行的概念。setTimeout这类JS规范之外的由运行环境提供的特殊函数做的事情是创建一个平行线程后立即返回，让JS主进程可以接着执行后续代码，并在收到平行进程的通知后再执行回调函数
 
 
+---
+
+
+4. Stream 是一个抽象接口，Node 中有很多对象实现了这个接口。例如，对http 服务器发起请求的request 对象就是一个 Stream，还有stdout（标准输出）。
+
+* Node.js，Stream 有四种流类型：
+
+    Readable - 可读操作。
+
+    Writable - 可写操作。
+
+    Duplex - 可读可写操作.
+
+    Transform - 操作被写入数据，然后读出结果。
+
+* 所有的 Stream 对象都是 EventEmitter 的实例。常用的事件有：
+
+    data - 当有数据可读时触发。
+
+    end - 没有更多的数据可读时触发。
+
+    error - 在接收和写入过程中发生错误时触发。
+
+    finish - 所有数据已被写入到底层系统时触发。
